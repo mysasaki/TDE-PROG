@@ -3,14 +3,16 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
+	ofSetFrameRate(60);
+
 	gameManager = new GameManager(GAME_PLAY);
 	gamePlay = new GamePlay(gameManager);
-	std::cout << "Iniciei porra" << std::endl;
+	//std::cout << "Iniciei porra" << std::endl;
 }
 
 //--------------------------------------------------------------
 void ofApp::update() {
-	std::cout << "dei update porra" << std::endl;
+	//std::cout << "dei update porra" << std::endl;
 	switch (gameManager->GetGameState())
 	{
 		//case GAME_MENU:
@@ -26,7 +28,7 @@ void ofApp::draw() {
 	switch (gameManager->GetGameState())
 	{
 	case GAME_PLAY:
-		std::cout << "desenhei play porra" << std::endl;
+		//std::cout << "desenhei play porra" << std::endl;
 		gamePlay->Draw(gameManager);
 		break;
 	}

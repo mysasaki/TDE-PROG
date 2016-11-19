@@ -10,8 +10,15 @@
     <ClCompile Include="src\GameManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\GamePlay.cpp" />
-    <ClCompile Include="src\Hero.cpp" />
+    <ClCompile Include="src\GamePlay.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hero.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HUD.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -28,8 +35,15 @@
     <ClInclude Include="src\GameManager.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\GamePlay.h" />
-    <ClInclude Include="src\Hero.h" />
+    <ClInclude Include="src\GamePlay.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hero.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HUD.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

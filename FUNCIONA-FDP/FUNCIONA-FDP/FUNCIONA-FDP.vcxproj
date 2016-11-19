@@ -175,6 +175,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\HUD.cpp" />
     <ClCompile Include="src\Hero.cpp" />
     <ClCompile Include="src\GamePlay.cpp" />
     <ClCompile Include="src\GameManager.cpp" />
@@ -182,6 +183,7 @@
     <ClCompile Include="src\ofApp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\HUD.h" />
     <ClInclude Include="src\Hero.h" />
     <ClInclude Include="src\GamePlay.h" />
     <ClInclude Include="src\GameManager.h" />

@@ -1,11 +1,12 @@
 #include "GamePlay.h"
-
+#include<iostream>
 
 GamePlay::GamePlay(GameManager *game)
 {
 	m_background.loadImage("images/GamePlayBG.png");
 
 	Sona = new Hero();
+	hud = new HUD(game, Sona);
 	Reset(game);
 }
 
@@ -22,13 +23,14 @@ void GamePlay::MousePressed(int x, int y, int button)
 
 void GamePlay::Draw(GameManager * game)
 {
-	m_background.draw(0, 0);
+	m_background.draw(0, 0, 1200, 600);
 	Sona->Draw();
+	hud->Draw(Sona);
 }
 
 void GamePlay::Update(GameManager * game)
 {
-	Sona->Update(game);
+	Sona->Update();
 }
 
 void GamePlay::Reset(GameManager * game)

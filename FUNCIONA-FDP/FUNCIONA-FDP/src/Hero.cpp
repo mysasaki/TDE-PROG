@@ -18,10 +18,10 @@ void Hero::Reset()
 
 void Hero::Draw()
 {
-	m_image.draw(m_position);
+	m_image.draw(m_position, 30,30);
 }
 
-void Hero::Update(GameManager *game)
+void Hero::Update()
 {
 	m_direction = m_destination - m_position;
 	m_speed = m_direction.normalize();

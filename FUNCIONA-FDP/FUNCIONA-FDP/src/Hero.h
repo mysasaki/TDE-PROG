@@ -11,7 +11,7 @@ public:
 
 	void Reset();
 	void Draw();
-	void Update(GameManager* game);
+	void Update();
 
 	/*Ajustes de hp*/
 	void SetHealth(float hp);
