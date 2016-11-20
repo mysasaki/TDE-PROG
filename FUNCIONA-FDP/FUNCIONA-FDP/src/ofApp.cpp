@@ -3,7 +3,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
-	ofSetFrameRate(60);
+	ofSetFrameRate(50);
 
 	gameManager = new GameManager(GAME_PLAY);
 	gamePlay = new GamePlay(gameManager);
@@ -24,7 +24,7 @@ void ofApp::update() {
 
 //--------------------------------------------------------------
 void ofApp::draw() {
-	std::cout << "dei draw porra" << std::endl;
+	//std::cout << "dei draw porra" << std::endl;
 	switch (gameManager->GetGameState())
 	{
 	case GAME_PLAY:

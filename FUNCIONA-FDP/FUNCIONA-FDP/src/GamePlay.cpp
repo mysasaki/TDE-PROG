@@ -6,6 +6,7 @@ GamePlay::GamePlay(GameManager *game)
 	m_background.loadImage("images/GamePlayBG.png");
 
 	Sona = new Hero();
+	Mini = new Minion();
 	hud = new HUD(game, Sona);
 	Reset(game);
 }
@@ -25,12 +26,14 @@ void GamePlay::Draw(GameManager * game)
 {
 	m_background.draw(0, 0, 1200, 600);
 	Sona->Draw();
+	Mini->Draw();
 	hud->Draw(Sona);
 }
 
 void GamePlay::Update(GameManager * game)
 {
 	Sona->Update();
+	Mini->Update(Sona);
 }
 
 void GamePlay::Reset(GameManager * game)

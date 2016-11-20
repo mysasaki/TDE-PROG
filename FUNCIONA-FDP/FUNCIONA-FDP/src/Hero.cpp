@@ -27,7 +27,7 @@ void Hero::Update()
 	m_speed = m_direction.normalize();
 
 	if (m_destination.distance(m_position) > 5)
-		m_position = m_position + m_speed * 2;
+		m_position = m_position + m_speed * HERO_SPEED;
 }
 
 /*-- Status do hero --*/

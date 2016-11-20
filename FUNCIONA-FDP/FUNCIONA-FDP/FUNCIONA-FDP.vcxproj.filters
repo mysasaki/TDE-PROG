@@ -19,6 +19,9 @@
     <ClCompile Include="src\HUD.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Minion.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -42,6 +45,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\HUD.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Minion.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
