@@ -36,7 +36,11 @@ void ofApp::draw() {
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
-
+	switch (gameManager->GetGameState())
+	{
+	case GAME_PLAY:
+		gamePlay->KeyPressed(key);
+	}
 }
 
 //--------------------------------------------------------------

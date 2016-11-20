@@ -3,7 +3,7 @@
 #include "GameManager.h"
 #include<string>
 
-#define HERO_SPEED 1.5
+#define HERO_SPEED 1
 
 class Hero
 {

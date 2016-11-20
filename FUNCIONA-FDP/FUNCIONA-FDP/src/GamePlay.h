@@ -5,6 +5,7 @@
 #include "Minion.h"
 #include "HUD.h"
 #include<string>
+#include <vector>
 
 class GamePlay
 {
@@ -16,11 +17,15 @@ public:
 	void Draw(GameManager *game);
 	void Update(GameManager *game);
 	void Reset(GameManager *game);
+	void AddMinions(int num);
+	void KeyPressed(int key);
 
 private:
 	HUD *hud;
 	Hero *Sona;
-	Minion *Mini;
+	//Minion *Mini;
 	ofImage m_background;
+	vector <Minion*> Mob;
+	int minion;
 };
 

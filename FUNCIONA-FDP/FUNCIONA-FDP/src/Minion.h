@@ -1,6 +1,6 @@
 #pragma once
 #include "Hero.h"
-#define MINION_SPEED 1.2
+#define MINION_SIZE 20.0f
 
 class Minion
 {
@@ -9,21 +9,27 @@ public:
 	~Minion();
 
 	void Reset();
-	void Update(Hero *hero);
+	void Update();
 	void Draw();
 
 	void Move();
 	void TakeDmg();
 
+	void SetPosition(float x, float y);
 	void SetDestination();
 	void ReduceHealth();
+	void SetMinionSpeed(float spd);
 	float SetSize();
+	float GetHp();
+
 
 private:
 	ofImage image;
-	float m_health;
+	float 
+		m_health,
+		m_minion_speed;
 
-	ofVec2f 
+	ofVec2f
 		m_position,
 		m_direction, 
 		m_speed, 
