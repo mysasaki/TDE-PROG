@@ -6,12 +6,13 @@ GamePlay::GamePlay(GameManager *game)
 {
 	m_background.loadImage("images/GamePlayBG.png");
 
+	Torrone = new Tower();
 	Sona = new Hero();
 	//Mini = new Minion();
 	hud = new HUD(game, Sona);
 
 	Reset(game);
-	AddMinions(6);
+	AddMinions(6, Torrone);
 }
 
 
@@ -29,6 +30,7 @@ void GamePlay::Draw(GameManager * game)
 {
 	m_background.draw(0, 0, 1200, 600);
 	Sona->Draw();
+	Torrone->Draw();
 	//Mini->Draw();
 	hud->Draw(Sona);
 
@@ -47,7 +49,7 @@ void GamePlay::Update(GameManager * game)
 
 	for (unsigned int i = 0; i < 6; i++)
 	{
-		Mob[i]->Update();
+		Mob[i]->Update(Torrone);
 		//std::cout << "minion " << i << " atualizado caralha" << std::endl;
 	}
 
@@ -56,11 +58,10 @@ void GamePlay::Update(GameManager * game)
 
 void GamePlay::Reset(GameManager * game)
 {
-	minion = 0;
 	Sona->Reset();
 }
 
-void GamePlay::AddMinions(int num)
+void GamePlay::AddMinions(int num, Tower *torre)
 {
 	float randX, randY, randSpd;
 
@@ -69,7 +70,7 @@ void GamePlay::AddMinions(int num)
 		randX = ofRandom(-50, -10);
 		randY = ofRandom(-50, -10);
 		randSpd = ofRandom(0.5, 0.8);
-		Minion *minion = new Minion();
+		Minion *minion = new Minion(torre);
 		minion->SetPosition(randX, randY);
 		minion->SetMinionSpeed(randSpd);
 		Mob.push_back(minion);
@@ -91,6 +92,12 @@ void GamePlay::KeyPressed(int key)
 				return;
 			}
 		}
-	}
 		//Mini->TakeDmg();
+	}
+
+	if (key == 'n')
+	{
+		Torrone->TakeDmg();
+	}
+
 }

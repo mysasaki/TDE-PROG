@@ -3,6 +3,7 @@
 #include "GameManager.h"
 #include "Hero.h"
 #include "Minion.h"
+#include "Tower.h"
 #include "HUD.h"
 #include<string>
 #include <vector>
@@ -17,15 +18,16 @@ public:
 	void Draw(GameManager *game);
 	void Update(GameManager *game);
 	void Reset(GameManager *game);
-	void AddMinions(int num);
+
+	void AddMinions(int num, Tower *torre);
 	void KeyPressed(int key);
 
 private:
 	HUD *hud;
 	Hero *Sona;
+	Tower *Torrone;
 	//Minion *Mini;
 	ofImage m_background;
 	vector <Minion*> Mob;
-	int minion;
 };
 
