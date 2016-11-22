@@ -30,7 +30,8 @@ public:
 
 private:
 	ofImage image;
-	float 
+	float
+		count,
 		m_health,
 		m_minion_speed;
 

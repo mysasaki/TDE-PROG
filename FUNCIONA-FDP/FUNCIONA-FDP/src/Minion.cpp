@@ -21,13 +21,18 @@ void Minion::Reset()
 	m_minion_speed = 1.0;
 	m_position.set(0, 0);
 	m_range.set(10, 10);
+	count = 0.0f;
 }
 
 void Minion::Update(Tower * torre) // Caso implementar mais de uma torre e fazer os minions atacarem a proxima torre, mexe aqui
 {
+	count += ofGetLastFrameTime();
 	Move();
-	if (IsRange(torre))
+	if (IsRange(torre) && count >= 10)
+	{
 		PewPew(torre);
+		count = 0;
+	}
 }
 
 void Minion::Draw()
@@ -63,8 +68,7 @@ bool Minion::IsRange(Tower *torre)
 	/* ERA PRA SER SOBRECARGA DE OPERADOR SOQ VS FDP NAO TA RECONHECENDO
 	if (m_range >= (torre->getPosition()-m_position)) // Sobrecarga de operador!!!!!!!
 		return true;*/
-	else
-		return false;
+	return false;
 }
 
 /*-- Setters --*/

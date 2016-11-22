@@ -32,7 +32,7 @@ void Tower::ReduceHealth(/*float*/)
 {
 	if (m_health >= 0)
 	{
-		m_health -= 5.0f;
+		m_health -= 2.0f;
 	}
 }
 
