@@ -27,6 +27,8 @@ void HUD::Draw(Hero *hero)
 	ofSetColor(255,255,255);
 	ofDrawBitmapString("Hp: " + ofToString(hero->GetHealth()) + "%", 30, 555);
 	ofDrawBitmapString("Mana: " + ofToString(hero->GetMana()) + "%", 30, 570);
+	ofDrawBitmapString("Press Q -> Hymn of Valor", 500, 555);
+	hero->Skill1Cooldown(850, 555);
 }
 
 void HUD::Reset()

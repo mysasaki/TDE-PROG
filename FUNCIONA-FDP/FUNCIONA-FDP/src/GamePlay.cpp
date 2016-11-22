@@ -20,11 +20,6 @@ GamePlay::~GamePlay()
 {
 }
 
-void GamePlay::MousePressed(int x, int y, int button)
-{
-	if (button == OF_MOUSE_BUTTON_3)
-		Sona->SetDestination(ofVec2f(ofGetMouseX(), ofGetMouseY()));
-}
 
 void GamePlay::Draw(GameManager * game)
 {
@@ -44,7 +39,7 @@ void GamePlay::Draw(GameManager * game)
 
 void GamePlay::Update(GameManager * game)
 {
-	Sona->Update();
+	Sona->Update(Torrone);
 	//Mini->Update();
 
 	for (unsigned int i = 0; i < 6; i++)
@@ -79,11 +74,30 @@ void GamePlay::AddMinions(int num, Tower *torre)
 }
 
 
-/*-- hacks pra testar dmg etc --*/
+/*-- Player input --*/
+
+void GamePlay::MousePressed(int x, int y, int button)
+{
+	switch (button)
+	{
+	case OF_MOUSE_BUTTON_1:
+		if (Torrone->CheckClicked(x, y))
+			Sona->EnemyLock(Torrone);
+		break;
+	case OF_MOUSE_BUTTON_3:
+		Sona->SetDestination(ofVec2f(ofGetMouseX(), ofGetMouseY()));
+		break;
+	}	
+}
+
 void GamePlay::KeyPressed(int key)
 {
-	if (key == 'b')
+	switch (key)
 	{
+	case 'q':
+		Sona->AttackSkill(Torrone);
+		break;
+	case 'b': //hack pra testar dmg no minion
 		for (unsigned int i = 0; i < 6; i++)
 		{
 			if (Mob[i]->GetHp() > 0)
@@ -92,12 +106,12 @@ void GamePlay::KeyPressed(int key)
 				return;
 			}
 		}
-		//Mini->TakeDmg();
-	}
+		break;
+			//Mini->TakeDmg();
 
-	if (key == 'n')
-	{
-		Torrone->TakeDmg();
-	}
+	case 'n': //hack pra testar dmg na torre
+		Torrone->TakeDmg(2.0f);
+		break;
 
+	}
 }

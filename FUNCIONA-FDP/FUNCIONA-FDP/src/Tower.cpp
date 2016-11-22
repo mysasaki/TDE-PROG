@@ -9,6 +9,7 @@ Tower::Tower()
 
 void Tower::Reset()
 {
+	m_size = 80.0f;
 	m_health = 100.0f;
 	m_position.set(1100,450);
 }
@@ -20,27 +21,9 @@ void Tower::Draw()
 
 float Tower::SetSize()
 {
-	return(TOWER_SIZE * (m_health / 100.0f));
+	return(m_size * (m_health / 100.0f));
 }
 
-void Tower::TakeDmg() // Depois ajustar essa funcao pra diferenciar dano recebido por heroi ou minion
-{
-	ReduceHealth();
-}
-
-void Tower::ReduceHealth(/*float*/)
-{
-	if (m_health >= 0)
-	{
-		m_health -= 2.0f;
-	}
-}
-
-
-ofVec2f Tower::getPosition()
-{
-	return m_position;
-}
 
 Tower::~Tower()
 {

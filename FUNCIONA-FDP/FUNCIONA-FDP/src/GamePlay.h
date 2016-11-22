@@ -14,12 +14,13 @@ public:
 	GamePlay(GameManager *game);
 	~GamePlay();
 
-	void MousePressed(int x, int y, int button);
 	void Draw(GameManager *game);
 	void Update(GameManager *game);
 	void Reset(GameManager *game);
 
 	void AddMinions(int num, Tower *torre);
+
+	void MousePressed(int x, int y, int button);
 	void KeyPressed(int key);
 
 private:

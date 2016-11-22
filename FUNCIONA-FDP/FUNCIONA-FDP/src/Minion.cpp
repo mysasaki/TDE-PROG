@@ -3,10 +3,10 @@
 
 
 
-Minion::Minion(Tower *torre)
+Minion::Minion(Enemy *enemy)
 {
 	image.loadImage("images/minion.png");
-	SetDestination(torre->getPosition());
+	SetDestination(enemy->getPosition());
 	Reset();
 }
 
@@ -17,6 +17,7 @@ Minion::~Minion()
 
 void Minion::Reset()
 {
+	m_dps = 0.5f;
 	m_health = 100.0f;
 	m_minion_speed = 1.0;
 	m_position.set(0, 0);
@@ -24,13 +25,13 @@ void Minion::Reset()
 	count = 0.0f;
 }
 
-void Minion::Update(Tower * torre) // Caso implementar mais de uma torre e fazer os minions atacarem a proxima torre, mexe aqui
+void Minion::Update(Enemy *enemy) // Caso implementar mais de uma torre e fazer os minions atacarem a proxima torre, mexe aqui
 {
 	count += ofGetLastFrameTime();
 	Move();
-	if (IsRange(torre) && count >= 10)
+	if (IsRange(enemy) && count >= 10)
 	{
-		PewPew(torre);
+		PewPew(enemy);
 		count = 0;
 	}
 }
@@ -53,15 +54,15 @@ void Minion::TakeDmg()
 	ReduceHealth();
 }
 
-void Minion::PewPew(Tower * torre)
+void Minion::PewPew(Enemy *enemy)
 {
-	torre->TakeDmg();
+	enemy->TakeDmg(m_dps);
 }
 
-bool Minion::IsRange(Tower *torre)
+bool Minion::IsRange(Enemy *enemy)
 {
 	ofVec2f dist;
-	dist.set(torre->getPosition() - m_position);
+	dist.set(enemy->getPosition() - m_position);
 	if ((m_range.x >= dist.x) && (m_range.y >= dist.y))
 		return true;
 
