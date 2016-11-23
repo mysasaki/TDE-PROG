@@ -10,11 +10,15 @@ public:
 	//void Update();
 	bool CheckClicked(int x, int y);
 
+	/*-- Metodos de ajuste --*/
 	virtual void SetSize(float siz);
 	void SetPosition(ofVec2f pos);
 	void TakeDmg(float dmg);
 	void ReduceHealth(float dmg);
-	ofVec2f getPosition();
+
+	/*-- Metodos de acesso --*/
+	ofVec2f GetPosition();
+	float GetHealth();
 
 protected:
 	float

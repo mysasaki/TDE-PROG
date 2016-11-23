@@ -50,7 +50,12 @@ void Enemy::ReduceHealth(float dmg)
 	m_health -= dmg;
 }
 
-ofVec2f Enemy::getPosition()
+ofVec2f Enemy::GetPosition()
 {
 	return m_position;
+}
+
+float Enemy::GetHealth()
+{
+	return m_health;
 }

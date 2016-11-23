@@ -3,6 +3,7 @@
 #include "GameManager.h"
 #include "Hero.h"
 #include "Minion.h"
+#include "HealthBar.h"
 #include "Tower.h"
 #include "HUD.h"
 #include<string>
@@ -27,6 +28,8 @@ private:
 	HUD *hud;
 	Hero *Sona;
 	Tower *Torrone;
+	HealthBar *HeroHp;
+	HealthBar *TowerHp;
 	//Minion *Mini;
 	ofImage m_background;
 	vector <Minion*> Mob;

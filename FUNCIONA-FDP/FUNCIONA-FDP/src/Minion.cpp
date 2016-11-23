@@ -6,7 +6,7 @@
 Minion::Minion(Enemy *enemy)
 {
 	image.loadImage("images/minion.png");
-	SetDestination(enemy->getPosition());
+	SetDestination(enemy->GetPosition());
 	Reset();
 }
 
@@ -62,12 +62,12 @@ void Minion::PewPew(Enemy *enemy)
 bool Minion::IsRange(Enemy *enemy)
 {
 	ofVec2f dist;
-	dist.set(enemy->getPosition() - m_position);
+	dist.set(enemy->GetPosition() - m_position);
 	if ((m_range.x >= dist.x) && (m_range.y >= dist.y))
 		return true;
 
 	/* ERA PRA SER SOBRECARGA DE OPERADOR SOQ VS FDP NAO TA RECONHECENDO
-	if (m_range >= (torre->getPosition()-m_position)) // Sobrecarga de operador!!!!!!!
+	if (m_range >= (torre->GetPosition()-m_position)) // Sobrecarga de operador!!!!!!!
 		return true;*/
 	return false;
 }

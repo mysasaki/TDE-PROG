@@ -16,7 +16,7 @@ void Tower::Reset()
 
 void Tower::Draw()
 {
-	image.draw(m_position, SetSize(), SetSize());
+	image.draw(m_position, m_size, m_size);
 }
 
 float Tower::SetSize()

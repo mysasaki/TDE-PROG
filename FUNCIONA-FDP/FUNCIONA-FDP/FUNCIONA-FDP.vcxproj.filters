@@ -26,6 +26,10 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Enemy.cpp" />
+    <ClCompile Include="src\PewPew.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HealthBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -58,6 +62,10 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Enemy.h" />
+    <ClInclude Include="src\PewPew.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HealthBar.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

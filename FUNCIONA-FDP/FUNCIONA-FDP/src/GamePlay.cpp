@@ -6,6 +6,8 @@ GamePlay::GamePlay(GameManager *game)
 {
 	m_background.loadImage("images/GamePlayBG.png");
 
+	HeroHp = new HealthBar();
+	TowerHp = new HealthBar();
 	Torrone = new Tower();
 	Sona = new Hero();
 	//Mini = new Minion();
@@ -23,6 +25,7 @@ GamePlay::~GamePlay()
 
 void GamePlay::Draw(GameManager * game)
 {
+	ofSetColor(255, 255, 255);
 	m_background.draw(0, 0, 1200, 600);
 	Sona->Draw();
 	Torrone->Draw();
@@ -35,13 +38,16 @@ void GamePlay::Draw(GameManager * game)
 		//std::cout << "minion " << i << " desenhado porra" << std::endl;
 
 	}
+	HeroHp->Draw(Sona->GetHealth());
+	TowerHp->Draw(Torrone->GetHealth());
 }
 
 void GamePlay::Update(GameManager * game)
 {
 	Sona->Update(Torrone);
 	//Mini->Update();
-
+	HeroHp->Update(Sona->GetPosition());
+	TowerHp->Update(Torrone->GetPosition());
 	for (unsigned int i = 0; i < 6; i++)
 	{
 		Mob[i]->Update(Torrone);
@@ -54,6 +60,8 @@ void GamePlay::Update(GameManager * game)
 void GamePlay::Reset(GameManager * game)
 {
 	Sona->Reset();
+	HeroHp->SetPosition(Sona->GetPosition());
+	TowerHp->SetPosition(Torrone->GetPosition());
 }
 
 void GamePlay::AddMinions(int num, Tower *torre)
@@ -97,6 +105,10 @@ void GamePlay::KeyPressed(int key)
 	case 'q':
 		Sona->AttackSkill(Torrone);
 		break;
+
+	case 'e':
+		Sona->BoostSkill();
+
 	case 'b': //hack pra testar dmg no minion
 		for (unsigned int i = 0; i < 6; i++)
 		{
@@ -111,6 +123,10 @@ void GamePlay::KeyPressed(int key)
 
 	case 'n': //hack pra testar dmg na torre
 		Torrone->TakeDmg(2.0f);
+		break;
+
+	case 'm':
+		Sona->ReduceHealth(10);
 		break;
 
 	}

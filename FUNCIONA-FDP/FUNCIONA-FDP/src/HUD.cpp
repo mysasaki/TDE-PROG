@@ -29,6 +29,8 @@ void HUD::Draw(Hero *hero)
 	ofDrawBitmapString("Mana: " + ofToString(hero->GetMana()) + "%", 30, 570);
 	ofDrawBitmapString("Press Q -> Hymn of Valor", 500, 555);
 	hero->Skill1Cooldown(850, 555);
+	ofDrawBitmapString("Press E -> Song of Celerity", 500, 570);
+	hero->Skill3Colldown(850, 570);
 }
 
 void HUD::Reset()
