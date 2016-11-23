@@ -5,7 +5,8 @@
 void ofApp::setup() {
 	ofSetFrameRate(50);
 
-	gameManager = new GameManager(GAME_PLAY);
+	gameManager = new GameManager(GAME_MENU);
+	gameMenu = new GameMenu(gameManager);
 	gamePlay = new GamePlay(gameManager);
 	//std::cout << "Iniciei porra" << std::endl;
 }
@@ -15,7 +16,6 @@ void ofApp::update() {
 	//std::cout << "dei update porra" << std::endl;
 	switch (gameManager->GetGameState())
 	{
-		//case GAME_MENU:
 	case GAME_PLAY:
 		gamePlay->Update(gameManager);
 		break;
@@ -27,6 +27,10 @@ void ofApp::draw() {
 	//std::cout << "dei draw porra" << std::endl;
 	switch (gameManager->GetGameState())
 	{
+	case GAME_MENU:
+		gameMenu->Draw();
+		break;
+
 	case GAME_PLAY:
 		//std::cout << "desenhei play porra" << std::endl;
 		gamePlay->Draw(gameManager);
@@ -67,6 +71,8 @@ void ofApp::mousePressed(int x, int y, int button) {
 void ofApp::mouseReleased(int x, int y, int button) {
 	switch (gameManager->GetGameState())
 	{
+	case GAME_MENU:
+		gameMenu->MousePressed(ofGetMouseX(), ofGetMouseY(), button, gameManager);
 	case GAME_PLAY:
 		gamePlay->MousePressed(ofGetMouseX(), ofGetMouseY(), button);
 	}

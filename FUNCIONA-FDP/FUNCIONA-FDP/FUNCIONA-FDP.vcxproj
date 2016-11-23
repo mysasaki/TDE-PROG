@@ -175,8 +175,9 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Button.cpp" />
+    <ClCompile Include="src\GameMenu.cpp" />
     <ClCompile Include="src\HealthBar.cpp" />
-    <ClCompile Include="src\PewPew.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
     <ClCompile Include="src\Minion.cpp" />
     <ClCompile Include="src\HUD.cpp" />
@@ -188,8 +189,9 @@
     <ClCompile Include="src\Tower.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Button.h" />
+    <ClInclude Include="src\GameMenu.h" />
     <ClInclude Include="src\HealthBar.h" />
-    <ClInclude Include="src\PewPew.h" />
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\Minion.h" />
     <ClInclude Include="src\HUD.h" />

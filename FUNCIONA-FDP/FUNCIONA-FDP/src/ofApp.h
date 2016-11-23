@@ -2,6 +2,7 @@
 #include "ofMain.h"	
 #include "GameManager.h"
 #include "GamePlay.h"
+#include "GameMenu.h"
 #include "Hero.h"
 
 
@@ -26,4 +27,5 @@ public:
 
 	GameManager *gameManager;
 	GamePlay *gamePlay;
+	GameMenu *gameMenu;
 };
