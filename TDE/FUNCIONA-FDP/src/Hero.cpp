@@ -20,6 +20,7 @@ void Hero::Reset()
 	m_position.set(0, 0);
 	m_range.set(100,100);
 	m_skill1Cd = 10;
+	m_skill2Cd = 20;
 	m_skill3Cd = 20;
 
 	b_lock = false;
@@ -36,6 +37,7 @@ void Hero::Update(Enemy* enemy)
 
 	/*-- Cooldowns & Regen mana --*/
 	m_skill1Cd += ofGetLastFrameTime();
+	m_skill2Cd += ofGetLastFrameTime();
 	m_skill3Cd += ofGetLastFrameTime();
 	count_Mana += ofGetLastFrameTime();
 
@@ -132,8 +134,21 @@ void Hero::AttackSkill(Enemy * enemy)
 			m_skill1Cd = 0;
 		}
 		else
-			std::cout << "skill em cd" << std::endl;
+			std::cout << "skill em cd ou n tem mana o suficiente" << std::endl;
 	}
+}
+
+void Hero::HealSkill()
+{
+	if (m_skill2Cd >= 20 && (m_mana - COST_SKILL2) > 0)
+	{
+		m_hp += 10.0f;
+		std::cout << "Aria of perseverance used" << std::endl;
+		m_mana -= COST_SKILL2;
+		m_skill2Cd = 0;
+	}
+	else
+		std::cout << "skill em cd ou n tem mana o suficiente" << std::endl;
 }
 
 void Hero::BoostSkill() // Skill aumenta a velocidade do champ por alguns segundos
@@ -148,7 +163,7 @@ void Hero::BoostSkill() // Skill aumenta a velocidade do champ por alguns segund
 		m_skill3Cd = 0;
 	}
 	else
-		std::cout << "skill em cd" << std::endl;
+		std::cout << "skill em cd ou n tem mana o suficiente" << std::endl;
 }
 
 /*-- HUD CD --*/
@@ -163,6 +178,20 @@ void Hero::Skill1Cooldown(float x, float y)
 	{
 		ofSetColor(255, 255, 255);
 		ofDrawBitmapString("Skill em cd. Espere " + ofToString(10 - (int)m_skill1Cd) + " segundos", x, y);
+	}
+}
+
+void Hero::Skill2Cooldown(float x, float y)
+{
+	if (m_skill2Cd >= 20)
+	{
+		ofSetColor(255, 255, 255);
+		ofDrawBitmapString("Aria of Perseverance disponivel", x, y);
+	}
+	else
+	{
+		ofSetColor(255, 255, 255);
+		ofDrawBitmapString("Skill em cd. Espere " + ofToString(20 - (int)m_skill2Cd) + " segundos", x, y);
 	}
 }
 

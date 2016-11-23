@@ -108,6 +108,11 @@ void GamePlay::KeyPressed(int key)
 
 	case 'e':
 		Sona->BoostSkill();
+		break;
+		
+	case 'w':
+		Sona->HealSkill();
+		break;
 
 	case 'b': //hack pra testar dmg no minion
 		for (unsigned int i = 0; i < 6; i++)

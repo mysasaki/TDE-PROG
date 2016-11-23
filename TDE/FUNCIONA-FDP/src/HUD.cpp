@@ -31,6 +31,8 @@ void HUD::Draw(Hero *hero)
 	hero->Skill1Cooldown(850, 555);
 	ofDrawBitmapString("Press E -> Song of Celerity", 500, 570);
 	hero->Skill3Colldown(850, 570);
+	ofDrawBitmapString("Press W -> Aria of Perseverance", 500, 585);
+	hero->Skill2Cooldown(850, 585);
 }
 
 void HUD::Reset()
